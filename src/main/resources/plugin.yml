@@ -1,7 +1,18 @@
 name: myFirstPlugin
-main: me.jordyn.myFirstPlugin.Plugin
-version: 0.0.4
+main: me.jordyn.myFirstPlugin.FirstPlugin
+version: '${project.version}'
 api-version: '1.20'
 commands:
   hello:
     usage: /<command>
+    permission: firstplugin.hello
+  fpt:
+    usage: /<command>
+  fpsetspawn:
+    usage: /<command>
+  sva:
+    usage: /<command>
+permissions:
+  firstplugin.hello:
+    description: Allows user to run /hello
+    default: op

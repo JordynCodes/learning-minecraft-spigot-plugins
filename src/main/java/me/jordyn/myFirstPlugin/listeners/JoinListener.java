@@ -1,19 +1,26 @@
 package me.jordyn.myFirstPlugin.listeners;
 
-import java.util.logging.Logger;
-import org.bukkit.entity.Player;
+import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import me.jordyn.myFirstPlugin.FirstPlugin;
 
 public class JoinListener implements Listener{
 
-    private static final Logger LOGGER=Logger.getLogger("myFirstPlugin");
+    private final FirstPlugin plugin;
     
+    public JoinListener(FirstPlugin plugin){
+        this.plugin = plugin;
+    }
+
     @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent event){
-        Player player = event.getPlayer();
-        LOGGER.info(player.getDisplayName() + " has joined the server.");
+    public void onPlayerJoin(PlayerJoinEvent e){
+        String joinMessage = this.plugin.getConfig().getString("join-message");
+        if (joinMessage != null){
+            joinMessage = joinMessage.replace("%player%", e.getPlayer().getDisplayName());
+            e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', joinMessage));
+        }
     }
 
 }
