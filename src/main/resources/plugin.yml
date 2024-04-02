@@ -12,6 +12,10 @@ commands:
     usage: /<command>
   sva:
     usage: /<command>
+  tellself:
+    usage: /<command>
+  preload:
+    usage: /<command>
 permissions:
   firstplugin.hello:
     description: Allows user to run /hello
