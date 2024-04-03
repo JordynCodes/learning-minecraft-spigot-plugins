@@ -16,6 +16,8 @@ commands:
     usage: /<command>
   preload:
     usage: /<command>
+  getnbthopper:
+    usage: /<command>
 permissions:
   firstplugin.hello:
     description: Allows user to run /hello
